@@ -1,0 +1,82 @@
+body{
+    background-color: #fbb12f;
+}
+.score {
+    background:rgba(255,255,255,0.2);
+    padding:0 3rem;
+    line-height:1;
+    border-radius:1rem;
+}
+
+.best {
+    background:rgba(255,255,255,0.2);
+    padding:0 3rem;
+    line-height:1;
+    border-radius:1rem;
+}
+
+.game {
+    border: solid 2px black; width: 500px; height: 500px; margin: auto; border-radius: 5rem;
+
+}
+
+.hole {
+    flex: 20%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.mole {
+    display: flex;
+    justify-content: center;
+font-size: 70px;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.2s;
+}
+
+.hole.up .mole {
+    top:15%;
+}
+
+.hole1{
+    border-top-left-radius: 5rem;
+    float: left;
+    height: 250px;
+    width: 250px;
+    background-color: red;
+    margin: auto;
+}
+
+.hole2{
+    border-top-right-radius: 5rem;
+    float:right ;
+    height: 250px;
+    width: 250px;
+    background-color: blue;
+    margin: auto;
+}
+.hole3{
+
+    border-bottom-right-radius: 5rem;
+    float:right ;
+    height: 250px;
+    width: 250px;
+    background-color: yellow;
+    margin: auto;
+}
+.hole4{
+    border-bottom-left-radius: 5rem;
+    float:right ;
+    height: 250px;
+    width: 250px;
+    background-color: greenyellow;
+    margin: auto;
+}
+
+
+
