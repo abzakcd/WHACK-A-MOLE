@@ -2,7 +2,6 @@
 
 Whac-A-Mole Web Game with Arduino Integration and SQL Data Storage
 
-Whac-A-Mole
 
 # Introduction
 Welcome to our Whac-A-Mole web game project, created by a team of talented students! This classic arcade game has been given a modern touch, combining Arduino integration and SQL data storage to offer an immersive gaming experience. Test your reflexes, have fun, and aim for the top spot on the leaderboard!
