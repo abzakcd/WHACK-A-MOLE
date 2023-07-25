@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Game</title>
+  <link rel="stylesheet" href="Game.css">
+</head>
+<body onkeydown="bonk(event)" tabindex="-1">
+<h1> Game! <span class="score">0</span></h1>
+<h1>best score! <span class="best">0</span></h1>
+
+<div class="controls">
+  <button onClick="startGame(1)" id="button">Start!</button>
+</div>
+
+<div id="demo"></div>
+
+<div class="game">
+  <div class="hole hole1" data-key="q">
+    <div class="mole"><img src="Daco_5139344.png" alt="" height="190px"></div>
+  </div>
+  <div class="hole hole2" data-key="w">
+    <div class="mole" ><img src="Daco_5139344.png" alt="" height="190px"></div>
+  </div>
+  <div class="hole hole3" data-key="r">
+    <div class="mole" ><img src="Daco_5139344.png" alt="" height="190px"></div>
+  </div>
+  <div class="hole hole4" data-key="e">
+    <div class="mole" ><img src="Daco_5139344.png" alt="" height="190px"></div>
+  </div>
+</div>
+<script src="Game.js"></script>
+
+
+
+</body>
+</html>
