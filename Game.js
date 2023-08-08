@@ -8,7 +8,7 @@ let score = 0;
 let best = 0;
 let level=2000;
 var modal = document.getElementById("myModal");
-var hole;
+
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -17,7 +17,7 @@ function randomTime(min, max) {
 
 function randomHole(holes){
     const idx = Math.floor(Math.random() * holes.length);
-     hole =  holes[idx];
+    const hole =  holes[idx];
     if(hole== lastHole){
        return  randomHole(holes);
     }
@@ -26,7 +26,7 @@ function randomHole(holes){
 }
 
 function peep() {
-    const time = randomTime(200, level);
+    const time = randomTime(300, level);
     const hole = randomHole(holes);
     hole.classList.add('up');
     setTimeout(() => {
@@ -52,14 +52,12 @@ function startGame(num) {
 
 
 function bonk(e) {
-    const holess= hole.getAttribute('data-key');
-    console.log(holess);
-    console.log(e.key);
-    if(e.key==holess) {
-        score++;
-        scoreBoard.textContent = score;
-        hole.classList.remove('up');
-    }
+    console.log(e.keyCode);
+    if(!e.isTrusted) return; // cheater!
+    score++;
+    this.parentNode.classList.remove('up');
+    scoreBoard.textContent = score;
+
     if (best < score){
         best= score;
         bestBoard.textContent = best;
@@ -68,6 +66,8 @@ function bonk(e) {
 
 
 
+
+moles.forEach(mole => mole.addEventListener('click', bonk));
 
 
 
