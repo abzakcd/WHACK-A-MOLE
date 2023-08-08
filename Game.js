@@ -17,9 +17,9 @@ function randomTime(min, max) {
 
 function randomHole(holes){
     const idx = Math.floor(Math.random() * holes.length);
-     hole =  holes[idx];
+    hole =  holes[idx];
     if(hole== lastHole){
-       return  randomHole(holes);
+        return  randomHole(holes);
     }
     lastHole = hole;
     return hole;
@@ -29,6 +29,8 @@ function peep() {
     const time = randomTime(200, level);
     const hole = randomHole(holes);
     hole.classList.add('up');
+    holeBonked = false; // Reset the holeBonked flag when a new hole is displayed
+
     setTimeout(() => {
         hole.classList.remove('up');
         if (!timeUp) peep();
@@ -51,24 +53,21 @@ function startGame(num) {
 }
 
 
+let holeBonked = false;
+
 function bonk(e) {
-    const holess= hole.getAttribute('data-key');
-    console.log(holess);
-    console.log(e.key);
-    if(e.key==holess) {
-        score++;
-        scoreBoard.textContent = score;
-        hole.classList.remove('up');
-    }
-    if (best < score){
-        best= score;
-        bestBoard.textContent = best;
+    if (hole && hole.classList.contains('up') && !holeBonked) {
+        const holess = hole.getAttribute('data-key');
+        console.log(holess);
+        console.log(e.key);
+        if (e.key == holess) {
+            score++;
+            scoreBoard.textContent = score;
+            holeBonked = true; // Set the flag to true to indicate the hole has been bonked
+        }
+        if (best < score) {
+            best = score;
+            bestBoard.textContent = best;
+        }
     }
 }
-
-
-
-
-
-
-
