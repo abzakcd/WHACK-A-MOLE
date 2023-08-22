@@ -8,7 +8,11 @@
 </head>
 <body onkeydown="bonk(event)" tabindex="-1">
 <h1> Game! <span class="score">0</span></h1>
-<h1>best score! <span class="best">0</span></h1>
+<div id="aaa">
+  <h1>best score! <span class="best">0</span></h1>
+  <h1><span class="best2">0</span></h1>
+</div>
+
 
 <div class="controls">
   <button onClick="startGame(1)" id="button">Start!</button>
@@ -30,15 +34,21 @@
     <div class="mole" ><img src="Daco_5139344.png" alt="" height="190px"></div>
   </div>
 </div>
+<input placeholder="Enter some text" name="name" id="input" />
+<p id="values"></p>
 
-<input type="text" id="nameInput">
-<button onclick="addNameToTable()">הוסף שם לטבלה</button>
 
-<table id="myTable">
+
+<table id="scoreTable">
+  <thead>
   <tr>
-    <th>מספר</th>
-    <th>שם</th>
+    <th>שם השחקן</th>
+    <th>תוצאה</th>
   </tr>
+  </thead>
+  <tbody id="scoreTableBody">
+  <!-- כאן יתווספו השורות עם הנתונים -->
+  </tbody>
 </table>
 
 <script src="Game.js"></script>

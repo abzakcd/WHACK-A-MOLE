@@ -1,6 +1,7 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const bestBoard = document.querySelector('.best');
+const bestBoard2 = document.querySelector('.best2');
 const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
@@ -9,6 +10,8 @@ let best = 0;
 let level=2000;
 var modal = document.getElementById("myModal");
 var hole;
+// דוגמה לקריאת הפונקציה startGame
+
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -40,16 +43,18 @@ function peep() {
 let xx=0;
 
 function startGame(num) {
-    xx +=num;
-    if (xx>1) {
+    xx += num;
+    if (xx > 1) {
         level -= 200;
     }
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
     peep();
-    setTimeout(() => timeUp = true, 15000)
-
+    setTimeout(() => {
+        timeUp = true;
+        bestscore(input);
+    }, 5000);
 }
 
 
@@ -65,9 +70,24 @@ function bonk(e) {
             scoreBoard.textContent = score;
             holeBonked = true; // Set the flag to true to indicate the hole has been bonked
         }
-        if (best < score) {
-            best = score;
-            bestBoard.textContent = best;
-        }
     }
 }
+
+function bestscore(){
+    const input = document.getElementById("input").value;
+
+    if (best < score) {
+        best = score;
+        bestBoard.textContent = input;
+        bestBoard2.textContent=best;
+
+        localStorage.setItem('best', best);
+        localStorage.setItem('bestInput', input);
+    }
+}
+
+// When the page loads, set the best score and associated input from localStorage
+window.onload = function () {
+    bestBoard.textContent = localStorage.getItem('bestInput');
+    bestBoard2.textContent = localStorage.getItem('best');
+};

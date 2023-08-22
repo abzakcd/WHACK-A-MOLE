@@ -10,7 +10,7 @@ body{
     border-radius:1rem;
 }
 
-.best {
+.best,.best2 {
     background:rgba(255,255,255,0.2);
     padding:0 3rem;
     line-height:1;
@@ -123,5 +123,12 @@ font-size: 70px;
 .button-1:focus {
     background-color: #F082AC;
 }
+
+#aaa{
+    display: flex;
+    flex-direction: row;
+}
+
+
 
 
