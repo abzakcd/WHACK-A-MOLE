@@ -1,0 +1,160 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.score {
+    background:rgba(255,255,255,0.2);
+    padding:0 3rem;
+    line-height:0;
+    border-radius:1rem;
+}
+
+.best {
+    background:rgba(255,255,255,0.2);
+    padding:0 3rem;
+    line-height:1;
+    border-radius:1rem;
+}
+
+.game {
+
+    display: grid;
+    align-content:stretch;
+    grid-template-columns: auto auto auto auto;
+    gap: 5%;
+    padding: 10px;
+
+
+
+}
+
+.hole {
+    flex: 20%;
+    overflow: hidden;
+    position: relative;
+    top: 95%;
+}
+
+
+
+.mole {
+
+    font-size: 70px;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    transition:all 0.1s;
+    opacity: 0;
+}
+
+.hole.up .mole {
+    opacity: 1;
+    top:10%;
+}
+
+.hole1{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    height: 22vh;
+    align-items: center;
+    padding: 47px 0;
+
+}
+
+.hole2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 47px 0;
+    font-size: 30px;
+    height: 22vh;
+    align-items: center;
+
+}
+.hole3{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 47px 0;
+    font-size: 30px;
+    height: 22vh;
+    align-items: center;
+
+}
+.hole4{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    padding: 47px 0;
+    font-size: 30px;
+    height: 22vh;
+
+}
+
+#cont{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: #2196F3;
+    padding: 10px
+}
+
+
+
+
+#button {
+    background-color: #ff0000;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: none;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+    background-color: #F082AC;
+}
+
+#aaa{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+#container{
+    width: 1438px;
+    height: 699px;
+    background-image: url("sw5s_6gqh_210511.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+
+
