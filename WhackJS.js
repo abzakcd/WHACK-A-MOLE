@@ -7,7 +7,8 @@ let lastHole;
 let timeUp = false;
 let score = 0;
 let best = 0;
-let level = 2000;
+let levelMin = 500;
+let levelMax = 1300;
 var modal = document.getElementById("myModal");
 var hole; // משתנה שיכול להשתנות על ידי הפונקציה randomHole
 let input; // משתנה שמחזיק את הקלט של השחקן
@@ -37,20 +38,21 @@ function peep() {
 
     setTimeout(() => {
         hole.classList.remove('up');
-        if (!timeUp) peep();
+        if (!timeUp && !timeUpLevelUp) peep();
     }, time);
 }
 
-let xx = 0;
-
+//let xx = 0;
+let timeUpLevelUp = false;
 // התחלת המשחק
 function startGame(num) {
-    xx += num;
+    /*xx += num;
     if (xx > 1) {
         level -= 200;
-    }
+    }*/
     scoreBoard.textContent = 0;
     timeUp = false;
+    timeUpLevelUp = false;
     score = 0;
     peep();
     document.getElementById('button').style.display = "none";
@@ -59,7 +61,8 @@ function startGame(num) {
         bestscore(input); // קריאה לפונקציה bestscore עם הקלט של השחקן
         document.getElementById('button').style.display = "inline-block";
 
-    }, 60000);
+    },60000 );
+
 }
 
 let holeBonked = false;
@@ -93,6 +96,15 @@ function bonk(e) {
             hole.classList.remove('up');
             scoreBoard.textContent = score;
             holeBonked = true; // Set the flag to true to indicate the hole has been bonked
+            if(score % 100 === 0 && score > 0){
+                timeUpLevelUp = true;
+                levelMin -=100;
+                levelMax -=100;
+                setTimeout(() =>{
+                    timeUpLevelUp = false;
+                    peep();
+                } , 3000);
+            }
         }
     }
 }
