@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Game</title>
+    <link rel="stylesheet" href="WhackCSS.css">
+</head>
+<body onkeydown="bonk(event)" tabindex="-1" >
+
+<div id="container" >
+    <h1> Game! <span class="score">0</span></h1>
+    <div>
+    </div >
+    <h1>best score! <span class="best">0</span><span class="best2">0</span></h1>
+    <div onload="myFunction()"></div>
+    <p id="values"></p>
+
+    <div class="controls">
+    </div>
+
+    <div id="demo"></div>
+
+    <div class="game">
+        <div class="hole hole1" data-key="w">
+            <div><img src="hole%20blue.png" height="150px"></div>
+            <div class="mole"><img src="Daco_blue.png" alt="" height="150px"></div>
+        </div>
+        <div class="hole hole2" data-key="q">
+            <div><img src="hole_y.png" height="150px"></div>
+            <div class="mole" ><img src="Daco_Y.png" alt="" height="150px"></div>
+        </div>
+        <div class="hole hole3" data-key="e">
+            <div><img src="hole%20red.png" height="150px"></div>
+            <div class="mole" ><img src="Daco_red.png" height="150px"></div>
+        </div>
+        <div class="hole hole4" data-key="r">
+            <div><img src="hole%20green.png" height="150px"></div>
+            <div class="mole" ><img src="Daco_green.png" alt="" height="150px"></div>
+        </div>
+
+    </div>
+    <div id="gameStart">
+        <button onClick="startGame()">Click To Play Again!</button>
+        <button onClick="resetGame()">Click For New Player!</button>
+    </div>
+</div>
+
+
+<script src="WhackJS2.0.js"></script>
+
+
+
+</body>
+</html>
