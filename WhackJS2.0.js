@@ -13,6 +13,11 @@ let levelMax = 1500;
 var modal = document.getElementById("myModal");
 var hole; // משתנה שיכול להשתנות על ידי הפונקציה randomHole
 let input; // משתנה שמחזיק את הקלט של השחקן
+document.getElementById("level").style.display = "flex";
+let cont_Levels=0;
+
+
+
 
 // פונקציה המחזירה זמן רנדומלי בין min ל-max
 function randomTime(min, max) {
@@ -49,37 +54,25 @@ let timeUpLevelUp = false;
 function startGame() {
     document.getElementById("gameStart").style.display = "none";
     setTimeout(() =>{
-    scoreBoard.textContent = 0;
-    timeUp = false;
-    timeUpLevelUp = false;
-    score = 0;
-    peep();
-    setTimeout(() => {
-        timeUp = true;
-        bestscore(input); // קריאה לפונקציה bestscore עם הקלט של השחק
-        document.getElementById("gameStart").style.display = "flex";
-    },60000 );
-},3000);
+        scoreBoard.textContent = 0;
+        timeUp = false;
+        timeUpLevelUp = false;
+        score = 0;
+        peep();
+        setTimeout(() => {
+            timeUp = true;
+            bestscore(input); // קריאה לפונקציה bestscore עם הקלט של השחק
+            document.getElementById("gameStart").style.display = "flex";
+
+        },60000 );
+    },3000);
 }
 
 let holeBonked = false;
 
-// טיפול במקשים שנלחצים
-/*function bonk(e) {
-    if (hole && hole.classList.contains('up') && !holeBonked) {
-        const holess = hole.getAttribute('data-key');
-        console.log(holess);
-        console.log(e.key);
-        if (e.key == holess) {
-            score++;
-            playSound();
-            scoreBoard.textContent = score;
-            holeBonked = true; // עדכון הדגל holeBonked לtrue לסימון שהחור נמכה
-        }
-    }
-}*/
+
 function bonk(e) {
-    document.getElementById("level").style.display = "none";
+    //document.getElementById("level").style.display = "none";
 
     if(timeUp === false) {
         const holess = hole.getAttribute('data-key');
@@ -94,8 +87,10 @@ function bonk(e) {
             hole.classList.remove('up');
             scoreBoard.textContent = score;
             holeBonked = true; // Set the flag to true to indicate the hole has been bonked
+
             if(score % 100 === 0 && score > 0 && score % 1000 > safetyPoint){
                 document.getElementById("level").style.display = "flex";
+                document.getElementById("levelup").innerHTML= "Level"+" "+ ++cont_Levels;
 
                 safetyPoint = score % 1000
                 timeUpLevelUp = true;
@@ -138,13 +133,13 @@ window.onload = function() {
     }
     startGame();
 
-   /* setTimeout(() => {
+    /* setTimeout(() => {
 
-    }, 2000);*/
+     }, 2000);*/
 }
 
 function resetGame(){
-location.reload();
+    location.reload();
 }
 
 function playSound(){
